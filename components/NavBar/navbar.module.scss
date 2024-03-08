@@ -1,0 +1,14 @@
+.navBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #000000;
+    color: #fff;
+    min-height: 10vh;
+    padding: 0 30px;
+
+    a {
+        text-decoration: none;
+        color: #fff;
+    }
+}

@@ -1,40 +1,23 @@
-# Next.js & NextUI Template
+## Getting Started
 
-This is a template for creating applications using Next.js 13 (app directory) and NextUI (v2).
+- First, run the development server with `npm run dev`.
+- Navigate to [http://localhost:3000](http://localhost:3000) on your browser.
+- Start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-## Technologies Used
+### Learn More
 
-- [Next.js 13](https://nextjs.org/docs/getting-started)
-- [NextUI v2](https://nextui.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [next-themes](https://github.com/pacocoursey/next-themes)
+To learn more about Next.js, take a look at the following resources:
 
-## How to Use
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
+## Deployment
+### ⊚ Deploy on Vercel
 
-### Use the template with create-next-app
+## Contribution
 
-To create a new project based on this template using `create-next-app`, run the following command:
-
-```bash
-npx create-next-app -e https://github.com/nextui-org/next-app-template
-```
-
-### Install dependencies
-
-```bash
-npm install
-```
-
-### Run the development server
-
-```bash
-npm run dev
-```
+I'm open to contributions & suggestions in making this a lot better :hand:
 
 ## License
 
-Licensed under the [MIT license](https://github.com/nextui-org/next-app-template/blob/main/LICENSE).
+MIT
