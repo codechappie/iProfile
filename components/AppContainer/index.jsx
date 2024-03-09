@@ -17,7 +17,7 @@ const AppContainer = ({ children }) => {
     }
 
     if (status === "unauthenticated") {
-        redirect("/signin")
+        redirect("/login")
     }
 
     if (status === "authenticated") {

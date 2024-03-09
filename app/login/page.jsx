@@ -7,7 +7,7 @@ const Login = () => {
 
   if (status === "loading") return <h3>Cargando...</h3>
 
-  if (session && session.user) return redirect("/")
+  if (session && session.user) return redirect("/dashboard")
 
   return (
     <div className="rounded-xl border-slate-100 p-8 flex items-center justify-center w-min gap-2 border flex-col-reverse">

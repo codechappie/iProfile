@@ -6,10 +6,11 @@ import { signOut } from 'next-auth/react'
 const NavBar = () => {
     return (
         <div className={styles.navBar}>
-            <Link href="/">Inicio</Link>
+            <Link href="/">
+                <img src="/static/img/logo.png" alt="" />
+            </Link>
 
 
-            {/* <Link href="/">Cerrar sesión</Link> */}
             <button onClick={() => signOut()}>
                 Cerrar
             </button>
