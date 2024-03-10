@@ -1,6 +1,6 @@
 import { NextAuthOptions } from 'next-auth';
 import GithubProvider from 'next-auth/providers/github';
-import CredentialsProvider from "next-auth/providers/credentials";
+import GoogleProvider from 'next-auth/providers/google';
 
 
 export const authOptions: NextAuthOptions = {
@@ -11,6 +11,10 @@ export const authOptions: NextAuthOptions = {
             clientId: process.env.CLIENT_ID,
             clientSecret: process.env.CLIENT_SECRET,
         }),
+        GoogleProvider({
+            clientId: process.env.GOOGLE_ID,
+            clientSecret: process.env.GOOGLE_SECRET,
+        })
     ],
     pages: {
         signIn: "/",
@@ -18,7 +22,7 @@ export const authOptions: NextAuthOptions = {
     callbacks: {
         async signIn({ user, account, profile }): Promise<any> {
             console.log(user, account, profile)
-            if (account.provider === 'github') {
+            if (account.provider === 'github' || account.provider === 'google') {
                 //   await dbConnect();
                 //check the user on your database and return true if is allowed to signIn
                 //   let found = await User.findOne({

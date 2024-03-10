@@ -2,6 +2,7 @@ import { Roboto } from 'next/font/google';
 import '../styles/global.css';
 import Providers from '../lib/provider';
 import NextAuthProvider from './lib/NextAuthProvider';
+import Script from 'next/script'
 
 const roboto = Roboto({
     subsets: ['latin'],
