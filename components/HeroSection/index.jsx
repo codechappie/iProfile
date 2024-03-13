@@ -14,10 +14,6 @@ const HeroSection = () => {
                     Tu espacio personal para mostrar quién eres y construir tu presencia digital. Organiza tus enlaces y proyectos.
                 </p>
                 <Link href="/login">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
                     Crear perfil
                 </Link>
             </div>

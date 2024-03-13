@@ -8,14 +8,6 @@ export default function Index() {
 
 	return (
 		<main className="mainContainer">
-			{/* <navbar>
-				<div className="logo">
-					<img src="" alt="" />
-				</div>
-			</navbar> */}
-			<Button color="primary" isLoading>
-				Loading
-			</Button>
 			<HeroSection />
 
 		</main>

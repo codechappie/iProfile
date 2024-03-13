@@ -4,6 +4,7 @@ import { useSession } from 'next-auth/react';
 import { redirect } from 'next/navigation';
 import NavBar from '../NavBar';
 import BottomBar from '../BottomBar';
+import Loader from '../Loader';
 
 
 const AppContainer = ({ children }) => {
@@ -13,7 +14,7 @@ const AppContainer = ({ children }) => {
     console.log("session", session);
 
     if (status === "loading") {
-        return <h3>Cargando...</h3>
+        return <Loader show={true} />
     }
 
     if (status === "unauthenticated") {
