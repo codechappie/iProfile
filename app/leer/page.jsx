@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useSelector } from 'react-redux';
 import AppContainer from '../../components/AppContainer';
 
-const leer = () => {
+const Leer = () => {
     const data = useSelector(state => state.userInfo);
 
     console.log("DATA", data)
@@ -21,4 +21,4 @@ const leer = () => {
     )
 }
 
-export default leer
+export default Leer
