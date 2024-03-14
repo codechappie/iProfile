@@ -18,7 +18,7 @@ export async function POST(req, res) {
   const body = await req.json()
 
   try {
-    console.log("RE", body, params)
+    console.log("RE", body)
     const post = await Post.create(body);
     return Response.json({ success: true, post });
   } catch (error) {
@@ -31,7 +31,7 @@ export async function PUT(req, res) {
   const body = await req.json()
 
   try {
-    console.log("RE", body, params)
+    console.log("RE", body)
     const post = await Post.updateOne(body);
     return Response.json({ success: true, post });
   } catch (error) {

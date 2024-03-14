@@ -33,7 +33,7 @@ export async function PUT(req, res) {
   const body = await req.json()
 
   try {
-    console.log("RE", body, params)
+    console.log("RE", body)
     const user = await User.updateOne(body);
     return Response.json({ success: true, user });
   } catch (error) {
