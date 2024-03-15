@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import AppContainer from '@/components/AppContainer';
 
 const Leer = () => {
-    const data = useSelector(state => state.userInfo);
+    const data = useSelector(state => state.userSlice);
 
     console.log("DATA", data)
 
