@@ -1,8 +1,7 @@
-import React from 'react'
-import styles from './navbar.module.scss'
-import Link from 'next/link'
-import { signOut } from 'next-auth/react'
-
+"use client";
+import Link from 'next/link';
+import styles from './navbar.module.scss';
+import UserDorpdown from '../UserDorpdown'
 const NavBar = () => {
     return (
         <div className={styles.navBar}>
@@ -11,9 +10,8 @@ const NavBar = () => {
             </Link>
 
 
-            <button onClick={() => signOut()}>
-                Cerrar
-            </button>
+               
+            <UserDorpdown />
         </div>
     )
 }

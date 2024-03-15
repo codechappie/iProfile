@@ -1,29 +1,36 @@
-import { NextAuthOptions } from 'next-auth';
 import GithubProvider from 'next-auth/providers/github';
 import GoogleProvider from 'next-auth/providers/google';
-import dbConnect from '../../lib/connect-db.js';
-import User from '../../models/User.js';
-import { generateUsername } from '../../lib/Utils.js'
-import axios from 'axios';
+import dbConnect from '@/lib/connect-db.js';
+import User from '@/models/User.js';
+import { generateUsername } from '@/lib/utils';
 
-export const authOptions: NextAuthOptions = {
-    // Secret for Next-auth, without this JWT encryption/decryption won't work
+interface authOptionsType {
+    secret: string | undefined;
+    providers: any;
+    pages: {
+        signIn: any;
+    };
+    callbacks: any;
+}
+
+
+export const authOptions: authOptionsType = {
     secret: process.env.SECRECT,
     providers: [
         GithubProvider({
-            clientId: process.env.CLIENT_ID,
-            clientSecret: process.env.CLIENT_SECRET,
+            clientId: process.env.CLIENT_ID as string,
+            clientSecret: process.env.CLIENT_SECRET as string,
         }),
         GoogleProvider({
-            clientId: process.env.GOOGLE_ID,
-            clientSecret: process.env.GOOGLE_SECRET,
+            clientId: process.env.GOOGLE_ID as string,
+            clientSecret: process.env.GOOGLE_SECRET as string,
         })
     ],
     pages: {
         signIn: "/",
     },
     callbacks: {
-        async signIn({ user, account, profile }): Promise<any> {
+        async signIn({ user, account, profile }: any) {
             // console.log(user, account, profile)
             if (account.provider === 'github' || account.provider === 'google') {
                 await dbConnect();
@@ -54,8 +61,8 @@ export const authOptions: NextAuthOptions = {
                             name: user.name,
                             profileImage: "test",
                             bio: "test",
-                        }).then(data => data.id && true)
-                            .then(error => {
+                        }).then((data: any) => data.id && true)
+                            .then((error: any) => {
                                 console.log("ERRORR: ", error)
                                 return false;
                             })
@@ -72,7 +79,15 @@ export const authOptions: NextAuthOptions = {
                         console.log("ERRROR CATCH: ", error)
                         return false;
                     }
-                } else return true;
+                } else {
+
+                    // const dispatch = useDispatch();
+
+                    console.log("NAME: ", found.name)
+                    // dispatch(setUserData(found.name))
+
+                    return true
+                };
 
                 // const isAllowedToSignIn = user.id;
 

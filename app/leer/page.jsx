@@ -1,7 +1,7 @@
 "use client";
 import Link from 'next/link';
 import { useSelector } from 'react-redux';
-import AppContainer from '../../components/AppContainer';
+import AppContainer from '@/components/AppContainer';
 
 const Leer = () => {
     const data = useSelector(state => state.userInfo);
@@ -15,7 +15,9 @@ const Leer = () => {
             <Link href="/">
                 Inicio
             </Link>
-            <div>{data.name}</div>
+
+            <h2>{data.name}</h2>
+
             <a href="/api/auth/signout">Sign out by link</a>
         </AppContainer>
     )

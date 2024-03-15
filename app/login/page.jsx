@@ -3,8 +3,8 @@ import { signIn, useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
 import style from './login.module.scss';
-import { Spinner } from "@nextui-org/react";
-import { Divider } from "@nextui-org/react";
+// import { Spinner } from "@nextui-org/react";
+// import { Divider } from "@nextui-org/react";
 import NavBar from '../../components/NavBar'
 import Loader from '../../components/Loader'
 
