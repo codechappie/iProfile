@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 interface RootLayoutProps {
   children: ReactNode;
-  session: undefined | null | Session;
+  session: never;
 }
 
 
