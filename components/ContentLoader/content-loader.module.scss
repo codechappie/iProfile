@@ -1,0 +1,12 @@
+.contentLoader {
+    position: absolute;
+    inset: 0;
+    background: #000000de;
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    &.show {
+        display: flex;
+    }
+}

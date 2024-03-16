@@ -1,3 +1,15 @@
-.formItem{
-    bottom: red;
+.userForm {
+    // background: green;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    position: relative;
+
+    input {
+        width: fit-content;
+    }
+    button {
+        width: fit-content;
+    }
 }
