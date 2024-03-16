@@ -11,6 +11,7 @@ interface authOptionsType {
         signIn: any;
     };
     callbacks: any;
+    session: any;
 }
 
 
@@ -99,6 +100,23 @@ export const authOptions: authOptionsType = {
                 // return true;
             }
         },
+        async jwt({ token, user, account, profile, isNewUser }: any) {
+            if (account) {
+                token.accessToken = account.access_token
+                token.id = profile.id
+            }
+            
+            return token
+        },
+        async session({ session, user, token }: any) {
+            session.accessToken = token.accessToken
+            session.user.id = token.id
 
+            return session
+        },
+    },
+    session: {
+        // Set it as jwt instead of database
+        strategy: "jwt",
     },
 };
