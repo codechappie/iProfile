@@ -94,14 +94,7 @@ const UserForm = ({ userId, loading, setLoading }) => {
         <Button disabled={(isLoading && isFetching)} type="submit">Actualizar</Button>
       </div>
       <span className={style.spanError}>{message}</span>
-
-
-
       {/* <Input type="text" placeholder="name" defaultValue={data?.user?.name} {...register("name")} /> */}
-
-
-
-
     </form>
   )
 }
