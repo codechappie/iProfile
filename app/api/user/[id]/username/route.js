@@ -4,24 +4,19 @@ import User from "../../../../../models/User";
 export async function PUT(req, { params }) {
     await dbConnect();
     const { username } = await req.json()
-    console.log("PARAMS", params, username)
     try {
-        const user = await User.findOneAndUpdate({
-            id: params.id
-        }, {
-            username
-        }, {
-            new: true,
-            passRawResult: true
-        });
+        const user = await User.findOneAndUpdate({ id: params.id, username: { $ne: username } },
+            { username }, { upsert: true });
 
-        return Response.json({ success: true, user })
+        return Response.json({ updated: true, user, message: "Usuario actualizado correctamente" })
     } catch (error) {
-        console.log(error.code)
-        if (error.code === 11000) {
-            return Response.json({ success: false, error: "Este usuario se encuentra en uso" });
+        console.log("ERRORCODE", error)
+        if (error.keyValue.id === params.id) {
+            return Response.json({ updated: false, message: "" });
+        } else if (error.keyPattern.username === 1) {
+            return Response.json({ updated: false, message: "Este usuario se encuentra en uso" });
         } else {
-            return Response.json({ success: false, error: "ERROR" });
+            return Response.json({ updated: false, message: "Error" });
         }
 
     }
