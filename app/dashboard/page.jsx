@@ -1,30 +1,17 @@
 "use client";
-import { signOut, useSession } from "next-auth/react";
 import AppContainer from '@/components/AppContainer';
-import { Button } from "@/components/ui/button"
-import axios from "axios";
+import { Button } from "@/components/ui/button";
+import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
-import { setUserData } from "@/lib/redux/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 // import { useGetPostByIdQuery } from '@/lib/redux/services/post'
-import { useGetUserByIdQuery, useUpdateUsernameMutation } from '@/lib/redux/services/user'
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { useForm } from "react-hook-form"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import style from './dashboard.module.scss'
 import Loader from "@/components/Loader";
-import ContentLoader from "@/components/ContentLoader";
-import { Skeleton } from "@/components/ui/skeleton"
-import { Separator } from "@/components/ui/separator"
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Separator } from "@/components/ui/separator";
+import { useGetUserByIdQuery, useUpdateUsernameMutation } from '@/lib/redux/services/user';
+import { useForm } from "react-hook-form";
+import style from './dashboard.module.scss';
 
 const Dashboard = () => {
   const userData = useSelector(state => state.userSlice);
@@ -87,11 +74,14 @@ export const UserForm = ({ userId, loading, setLoading }) => {
     return <Loader show={true} />
   }
 
+  if(loading){
+    return <Loader show={loading} />
+  }
 
   return (
     <form className={style.usernameValidator} onSubmit={handleSubmit(_handleUpdateUsername)}>
       {/* <Input placeholder="12345666" defaultValue={data?.user?.id} {...register("id", { required: true, disabled: true })} /> */}
-      {/* <Loader show={loading} /> */}
+      
       <Label htmlFor="email">Username: </Label>
       <div className={style.userField}>
         <Input className={style.inputUsername}

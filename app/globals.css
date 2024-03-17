@@ -82,20 +82,7 @@
   visibility: hidden;
 }
 
-.spining {
-  transform: rotateZ(0deg);
-  animation: spinIt 1.5s ease-in-out infinite;
-}
 
-
-@keyframes spinIt {
-  0% {
-    transform: rotateZ(0deg);
-  }
-  100% {
-    transform: rotateZ(360deg);
-  }
-}
 
 h1,
 button {
