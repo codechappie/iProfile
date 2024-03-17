@@ -13,6 +13,9 @@ import { useGetUserByIdQuery, useUpdateUsernameMutation } from '@/lib/redux/serv
 import { useForm } from "react-hook-form";
 import style from './dashboard.module.scss';
 
+
+
+
 const Dashboard = () => {
   const userData = useSelector(state => state.userSlice);
   const dispatch = useDispatch();
@@ -40,11 +43,9 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard;
 
 
-
-export const UserForm = ({ userId, loading, setLoading }) => {
+const UserForm = ({ userId, loading, setLoading }) => {
   const { data, isLoading, isFetching } = useGetUserByIdQuery({ id: userId })
   const [updateUsername] = useUpdateUsernameMutation();
   const [message, setMessage] = useState("");
@@ -74,14 +75,14 @@ export const UserForm = ({ userId, loading, setLoading }) => {
     return <Loader show={true} />
   }
 
-  if(loading){
+  if (loading) {
     return <Loader show={loading} />
   }
 
   return (
     <form className={style.usernameValidator} onSubmit={handleSubmit(_handleUpdateUsername)}>
       {/* <Input placeholder="12345666" defaultValue={data?.user?.id} {...register("id", { required: true, disabled: true })} /> */}
-      
+
       <Label htmlFor="email">Username: </Label>
       <div className={style.userField}>
         <Input className={style.inputUsername}
@@ -104,3 +105,6 @@ export const UserForm = ({ userId, loading, setLoading }) => {
     </form>
   )
 }
+
+export default Dashboard;
+
